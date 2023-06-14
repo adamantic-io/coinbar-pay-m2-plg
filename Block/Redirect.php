@@ -53,27 +53,36 @@ class Redirect extends Template
         $this->_order = $order;
     }
 
+
     /**
      * @return string
      */
     public function getOrderId()
     {
-        return $this->_order->getIncrementId();
+        return self::getOrUnknown($this->_order->getIncrementId());
     }
 
     /**
      * @return string
      */
     public function getPaymentStatus() {
-        return $this->escapeHtml($this->_request->getParam('status'));
+        return self::getOrUnknown($this->escapeHtml($this->_request->getParam('status')));
     }
 
     /**
      * @return string
      */
     public function getPaymentId() {
-        return $this->escapeHtml($this->_request->getParam('payment_id'));
+        return self::getOrUnknown($this->escapeHtml($this->_request->getParam('payment_id')));
     }
 
+    /**
+     *
+     * @return string
+     */
+    private static function getOrUnknown(?string $content) {
+        if (empty($content)) return __('Unknown')->render();
+        return $content;
+    }
 
 }

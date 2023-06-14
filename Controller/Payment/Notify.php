@@ -45,6 +45,10 @@ class Notify implements PaymentNotifyInterface
         $this->_m2CoinbarPayConfig->loadConfig();
         //$this->_m2CoinbarPayConfig->dump();
 
+        if ($serviceClientId != $this->_m2CoinbarPayConfig->get(M2CoinbarPayConfig::CBPAY_SERVICE_CLIENT_ID)) {
+            throw new \Magento\Framework\Exception\InputException(__("Invalid service client ID"));
+        }
+
         $cipher = new CoinbarCypher($this->_m2CoinbarPayConfig);
         $decoded = $cipher->decode($responseToken);
         if (!$decoded) {
@@ -52,9 +56,6 @@ class Notify implements PaymentNotifyInterface
         }
 
         $res = json_decode($decoded);
-        if ($res->service_client_id != $this->_m2CoinbarPayConfig->get(M2CoinbarPayConfig::CBPAY_SERVICE_CLIENT_ID)) {
-            throw new \Magento\Framework\Exception\InputException(__("Invalid service client ID"));
-        }
         if (!$res->payment_request_id_client) {
             throw new InputException(__("Field not provided: %1", 'payment_request_id_client'));
         }
