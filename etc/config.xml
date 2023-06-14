@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <payment>
+            <coinbarpay>
+                <payment_action>authorize</payment_action><!-- You can use another method like capture  -->
+                <model>Coinbar\CoinbarPay\Model\PaymentMethod</model>
+                <active>1</active>
+                <title>Coinbar Pay</title>
+                <gateway_url>https://pay.coinbar.io</gateway_url>
+                <order_status>pending</order_status><!-- set default order status-->
+            </coinbarpay>
+        </payment>
+    </default>
+</config>

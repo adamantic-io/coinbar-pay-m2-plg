@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Magento\Checkout\Controller\Onepage\Success" type="Coinbar\CoinbarPay\Controller\Onepage\Success" />
+    <preference for="CoinbarPay\Sdk\CoinbarPaymentGatewayConfig" type="Coinbar\CoinbarPay\Model\M2CoinbarPayConfig" />
+    <preference for="Coinbar\CoinbarPay\Api\PaymentNotifyInterface" type="Coinbar\CoinbarPay\Controller\Payment\Notify" />
+
+    <type name="Coinbar\Payment\Model\PaymentMethod">
+        <arguments>
+            <argument name="code" xsi:type="string">coinbarpay</argument>
+            <argument name="formBlockType" xsi:type="string">Coinbar\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Coinbar\Payment\Block\Info</argument>
+            <argument name="isGateway" xsi:type="boolean">true</argument>
+            <argument name="canAuthorize" xsi:type="boolean">true</argument>
+            <argument name="canCapture" xsi:type="boolean">true</argument>
+            <argument name="canRefund" xsi:type="boolean">true</argument>
+            <argument name="canVoid" xsi:type="boolean">true</argument>
+            <argument name="canUseInternal" xsi:type="boolean">false</argument>
+            <argument name="canUseCheckout" xsi:type="boolean">true</argument>
+            <argument name="canUseForMultishipping" xsi:type="boolean">false</argument>
+            <argument name="isInitializeNeeded" xsi:type="boolean">false</argument>
+            <argument name="canFetchTransactionInfo" xsi:type="boolean">true</argument>
+            <argument name="canReviewPayment" xsi:type="boolean">false</argument>
+        </arguments>
+    </type>
+</config>

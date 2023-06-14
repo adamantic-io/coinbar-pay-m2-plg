@@ -1,0 +1,18 @@
+<div class="coinbarpay-redirect">
+
+    <?php
+    
+    /**
+     * @var Coinbar\CoinbarPay\Block\Redirect $block 
+     */
+    if (!strcasecmp($block->getPaymentStatus(), 'success')) { ?>
+        <h1><?php echo __("Payment Successful!") ?></h1>
+        <p><?php echo __("Thank you for your payment. Your order has been processed.")?></p>
+        <p><?php echo __("Order ID") . ": " . $block->getOrderId(); ?></p>
+        <p><?php echo __("Payment ID") . ": " . $block->getPaymentId(); ?></p>
+        <p><?php echo __("Payment Status") . ": " .  $block->getPaymentStatus(); ?></p>
+    <?php } else { ?>
+        <h1><?php echo __("Payment Failed!") ?></h1>
+        <p><?php echo __("There was an issue with the processing of your payment, please contact us for more info.")?></p>
+    <?php } ?>
+</div>
