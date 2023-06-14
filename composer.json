@@ -1,12 +1,15 @@
 {
     "name": "coinbar/coinbar-pay-m2-plg",
     "description": "Magento 2 Plug-in for CoinbarPay",
-    "type": "library",
-    "version": "1.0.0",
+    "type": "magento2-module",
+    "version": "1.0.3",
     "license": "LGPL-3.0",
     "autoload": {
+        "files": [
+            "registration.php"
+        ],
         "psr-4": {
-            "Coinbar\\CoinbarPay": ""
+            "Coinbar\\CoinbarPay\\": ""
         }
     },
     "authors": [
@@ -18,7 +21,7 @@
     "require": {
         "php": ">=7.4",
         "ext-json": "*",
-        "coinbar/coinbar-pay-php-sdk": "^1.0.1"
+        "coinbar/coinbar-pay-php-sdk": "^1.0.0"
     },
     "repositories": [
         { "type": "vcs", "url": "https://github.com/adamantic-io/coinbar-pay-php-sdk" },
