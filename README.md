@@ -35,6 +35,7 @@ You will find a new payment method (usually at the bottom) called `Coinbar Pay`;
  * Service Client ID
  * Coinbar Pay API Key
  * Coinbar Pay Secret Key
+
 Also, make sure that the payment method is enabled (option `Enabled = Yes`).
 Then save the config and clear the caches.
 
