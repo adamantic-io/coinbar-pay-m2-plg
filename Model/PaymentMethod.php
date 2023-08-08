@@ -45,6 +45,7 @@ class PaymentMethod extends \Magento\Payment\Model\Method\AbstractMethod
     protected $_isGateway = true;
     protected $_canAuthorize = true;
     protected $_canCapture = false;
+    protected $_isInitializeNeeded = true;    
 
     protected $_m2CoinbarPayConfig;
     protected $_checkoutSession;
