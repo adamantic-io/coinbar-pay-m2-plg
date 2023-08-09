@@ -2,7 +2,7 @@
     "name": "coinbar/coinbar-pay-m2-plg",
     "description": "Magento 2 Plug-in for CoinbarPay",
     "type": "magento2-module",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "license": "LGPL-3.0",
     "autoload": {
         "files": [
