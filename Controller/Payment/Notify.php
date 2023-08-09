@@ -62,7 +62,7 @@ class Notify implements PaymentNotifyInterface
 
         $order = $this->_orderRepository->get($res->payment_request_id_client);
 
-        if (strcasecmp($res->result, 'success') == 0) {
+        if (strcasecmp($res->status, 'success') == 0) {
           $this->addPaymentInfo($order, $res);
         }
         $this->_orderRepository->save($order);
